@@ -1,1 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import 'tailwindcss';
+
+@theme {
+    --font-Poppins: 'Poppins', 'sans-serif';
+    --font-Lobster-Two: 'Lobster Two', 'sans-serif';
+
+    --breakpoint-sm: 576px;
+    --breakpoint-md: 768px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1400px;
+
+    --color-primary: #c72538;
+
+    /* Dark */
+    --color-dark-01: #f9f9f9;
+    --color-dark-02: #f1f1f2;
+    --color-dark-03: #dbdfe9;
+    --color-dark-04: #b5b5c3;
+    --color-dark-05: #99a1b7;
+    --color-dark-06: #78829d;
+    --color-dark-07: #78829d;
+    --color-dark-08: #252f4a;
+    --color-dark-09: #071437;
+
+    /* Shadow (for button hover)*/
+    --shadow-btn-inner: inset 0px 0px 122px rgba(0, 0, 0, 0.22);
+}
+
+html,
+body {
+    @apply scroll-smooth;
+}
+
+body {
+    @apply overflow-x-hidden font-Poppins bg-[#FAFAFA] text-dark-06 text-base font-normal relative;
+}
+
+p {
+    @apply leading-[1.8];
+}
+
+.container {
+    @apply mx-auto sm:max-w-[540px] md:max-w-[720px] lg:max-w-[960px] xl:max-w-[1140px] xxl:max-w-[1320px];
+}
+
+/* ==================== - Button - ==================== */
+.button {
+    @apply text-sm text-dark-01 py-2 px-5 rounded-md bg-linear-to-b from-dark-08 to-[#7885A8] hover:cursor-pointer hover:shadow-btn-inner active:scale-95 duration-200;
+}
+
+/* ==================== - Side Menu - ==================== */
+.side-menu-child li a.active {
+    @apply text-dark-08 bg-dark-02 border-dark-08;
+}
