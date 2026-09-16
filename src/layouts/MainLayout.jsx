@@ -6,7 +6,7 @@ const MainLayout = () => {
     return (
         <div className="site-wrap">
             {/* Header */}
-            <header>
+            <header className="py-4 lg:py-6">
                 <Header></Header>
             </header>
             {/* Header End */}

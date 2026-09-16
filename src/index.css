@@ -47,10 +47,14 @@ p {
 
 /* ==================== - Button - ==================== */
 .button {
-    @apply text-sm text-dark-01 py-2 px-5 rounded-md bg-linear-to-b from-dark-08 to-[#7885A8] hover:cursor-pointer hover:shadow-btn-inner active:scale-95 duration-200;
+    @apply text-sm lg:text-base font-medium text-dark-01 py-2.5 lg:py-3 px-5.5 lg:px-8 rounded-md bg-primary hover:cursor-pointer hover:shadow-btn-inner active:scale-95 duration-300;
 }
 
 /* ==================== - Side Menu - ==================== */
-.side-menu-child li a.active {
-    @apply text-dark-08 bg-dark-02 border-dark-08;
+.header-wrap nav ul li a.active {
+    @apply text-primary;
+}
+
+.header-wrap nav ul li a {
+    @apply hover:text-primary duration-300;
 }
