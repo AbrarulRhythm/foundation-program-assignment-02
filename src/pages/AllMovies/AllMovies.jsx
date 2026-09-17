@@ -56,6 +56,7 @@ const AllMovies = () => {
 
     return (
         <>
+            <title>Film Pulse - All Movies</title>
             <SectionBanner title="All Movies"></SectionBanner>
 
             <section className="py-14 lg:py-18">
