@@ -217,7 +217,7 @@ const Footer = () => {
                         <div className="w-full lg:w-6/12 px-3">
                             <p className="text-sm text-center lg:text-right">
                                 Copyright &copy; 2025{' '}
-                                <Link to="/" className="font-semibold text-gray-300 hover:text-ps-primary duration-300">
+                                <Link to="/" className="font-semibold text-gray-300 hover:text-primary duration-300">
                                     FilmPulse
                                 </Link>
                                 . All rights reserveds
