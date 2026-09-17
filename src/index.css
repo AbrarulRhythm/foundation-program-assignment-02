@@ -67,3 +67,17 @@ p {
     background-repeat: no-repeat;
     background-size: cover;
 }
+
+/* [ Footer ] */
+/*================================================== */
+.footer-menu li {
+    @apply relative mb-0;
+}
+
+.footer-menu li:not(:last-child)::before {
+    @apply content-['|'] absolute top-0 -right-3.5;
+}
+
+.footer-menu li a {
+    @apply hover:text-primary duration-300;
+}
