@@ -216,7 +216,7 @@ const Footer = () => {
                         </div>
                         <div className="w-full lg:w-6/12 px-3">
                             <p className="text-sm text-center lg:text-right">
-                                Copyright &copy; 2025{' '}
+                                Copyright &copy; 2026{' '}
                                 <Link to="/" className="font-semibold text-gray-300 hover:text-primary duration-300">
                                     FilmPulse
                                 </Link>
