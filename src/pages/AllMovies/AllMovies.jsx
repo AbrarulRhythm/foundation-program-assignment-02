@@ -8,30 +8,6 @@ const AllMovies = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    // useEffect(() => {
-    //     const fetchSearch = async () => {
-    //         try {
-    //             const res = await fetch(`https://api.tvmaze.com/search/shows?q=${searchValue}`);
-
-    //             if (!res.ok) {
-    //                 throw new Error(res.message || 'Something went wrong!');
-    //             }
-
-    //             const data = await res.json();
-
-    //             const formattedData = data.map((item) => item.show);
-
-    //             setMovies(formattedData);
-    //         } catch (error) {
-    //             console.log(error.message);
-    //         } finally {
-    //             setLoading(false);
-    //         }
-    //     };
-
-    //     fetchSearch();
-    // }, [searchValue]);
-
     useEffect(() => {
         const fetchMoviesData = async () => {
             setLoading(true);
