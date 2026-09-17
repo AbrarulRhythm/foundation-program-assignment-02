@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import NotFoundMessage from '../../../components/NotFoundMessage/NotFoundMessage';
+import MovieCard from '../../shared/MovieCard/MovieCard';
+import { Link } from 'react-router';
 
 const LatestMovie = () => {
     const [movies, setMovies] = useState([]);
@@ -9,7 +11,7 @@ const LatestMovie = () => {
     useEffect(() => {
         const fetchMovies = async () => {
             try {
-                const res = await fetch('https://api.tvmaze.com/showss');
+                const res = await fetch('https://api.tvmaze.com/shows');
 
                 if (!res.ok) {
                     throw new Error(res.message || 'Something went wrong!');
@@ -37,7 +39,7 @@ const LatestMovie = () => {
         <div className="container">
             <SectionTitle subTitle="Search Less. Watch More." title="Latest Movies"></SectionTitle>
 
-            <div className="flex flex-wrap -mx-3">
+            <div className="flex flex-wrap -mx-2 lg:-mx-3">
                 {loading ? (
                     <div>This is Loading .....</div>
                 ) : (
@@ -47,10 +49,16 @@ const LatestMovie = () => {
                             <NotFoundMessage message="No movies available."></NotFoundMessage>
                         ) : (
                             // Data Row
-                            <div>{movies.length}</div>
+                            movies.map((movie) => <MovieCard key={movie.id} movie={movie}></MovieCard>)
                         )}
                     </>
                 )}
+            </div>
+
+            <div className="text-center mt-6">
+                <Link to="/" className="button">
+                    All Movies
+                </Link>
             </div>
         </div>
     );
