@@ -21,7 +21,7 @@ const Header = () => {
 
                     {/* Right Side (Button) */}
                     <div className="flex gap-3">
-                        <Link to="/" className="button">
+                        <Link to="/all-movies" className="button">
                             Movies
                         </Link>
 

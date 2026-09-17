@@ -21,7 +21,7 @@ const Hero = () => {
                                     </p>
                                     <div className="flex items-center gap-3 md:gap-4 lg:gap-6 mt-6">
                                         <Link
-                                            to="/"
+                                            to="/all-movies"
                                             className="inline-block font-medium bg-white text-primary py-3.5 px-10 rounded-md hover:bg-primary hover:text-white duration-300 active:scale-95"
                                         >
                                             Explore Now

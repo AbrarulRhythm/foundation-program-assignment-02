@@ -7,7 +7,7 @@ const MovieCard = ({ movie }) => {
         <div className="w-6/12 md:w-4/12 lg:w-3/12 px-2 lg:px-3 mb-3 lg:mb-6">
             <div className="bg-white border border-dark-03 rounded-md p-3.5">
                 <div className="overflow-hidden">
-                    <img src={image.medium} className="rounded-md w-full" alt="movie image" />
+                    <img src={image?.medium} className="rounded-md w-full" alt="movie image" />
                 </div>
 
                 {/* Details */}

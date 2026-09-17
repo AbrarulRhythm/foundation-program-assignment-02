@@ -56,7 +56,7 @@ const LatestMovie = () => {
             </div>
 
             <div className="text-center mt-6">
-                <Link to="/" className="button">
+                <Link to="/all-movies" className="button">
                     All Movies
                 </Link>
             </div>
