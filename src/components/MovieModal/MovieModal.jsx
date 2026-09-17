@@ -19,7 +19,7 @@ const MovieModal = ({ movie, onClose }) => {
             >
                 <div
                     onClick={(e) => e.stopPropagation()}
-                    className="bg-white h-[600px] lg:h-auto overflow-y-auto  w-2xl shadow-2xl rounded-md mx-3"
+                    className="bg-white h-150 lg:h-auto overflow-y-auto  w-2xl shadow-2xl rounded-md mx-3"
                 >
                     <div className="flex justify-between items-center p-4 border-b border-dark-03">
                         <div></div>
