@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import SectionBanner from '../../components/SectionBanner/SectionBanner';
 import NotFoundMessage from '../../components/NotFoundMessage/NotFoundMessage';
 import MovieCard from '../shared/MovieCard/MovieCard';
+import MovieCardSkeleton from '../../components/Skeleton/MovieCardSkeleton';
 
 const AllMovies = () => {
     const [searchValue, setSearchValue] = useState('');
@@ -29,7 +30,7 @@ const AllMovies = () => {
                     const sortedMovies = data
                         .filter((movie) => movie.premiered)
                         .sort((a, b) => new Date(b.premiered) - new Date(a.premiered))
-                        .slice(0, 12);
+                        .slice(0, 16);
 
                     setMovies(sortedMovies);
                 } else {
@@ -73,7 +74,7 @@ const AllMovies = () => {
 
                     <div className="flex flex-wrap -mx-2 lg:-mx-3">
                         {loading ? (
-                            <div>This is Loading .....</div>
+                            Array.from({ length: 8 }).map((_, index) => <MovieCardSkeleton key={index}></MovieCardSkeleton>)
                         ) : (
                             <>
                                 {/* Empty Stare */}

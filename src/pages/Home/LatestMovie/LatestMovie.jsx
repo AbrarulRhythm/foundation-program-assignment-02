@@ -3,6 +3,7 @@ import SectionTitle from '../../../components/SectionTitle/SectionTitle';
 import NotFoundMessage from '../../../components/NotFoundMessage/NotFoundMessage';
 import MovieCard from '../../shared/MovieCard/MovieCard';
 import { Link } from 'react-router';
+import MovieCardSkeleton from '../../../components/Skeleton/MovieCardSkeleton';
 
 const LatestMovie = () => {
     const [movies, setMovies] = useState([]);
@@ -41,7 +42,7 @@ const LatestMovie = () => {
 
             <div className="flex flex-wrap -mx-2 lg:-mx-3">
                 {loading ? (
-                    <div>This is Loading .....</div>
+                    Array.from({ length: 8 }).map((_, index) => <MovieCardSkeleton key={index}></MovieCardSkeleton>)
                 ) : (
                     <>
                         {/* Empty Stare */}
