@@ -3,11 +3,13 @@ import SectionBanner from '../../components/SectionBanner/SectionBanner';
 import NotFoundMessage from '../../components/NotFoundMessage/NotFoundMessage';
 import MovieCard from '../shared/MovieCard/MovieCard';
 import MovieCardSkeleton from '../../components/Skeleton/MovieCardSkeleton';
+import MovieModal from '../../components/MovieModal/MovieModal';
 
 const AllMovies = () => {
     const [searchValue, setSearchValue] = useState('');
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
         const fetchMoviesData = async () => {
@@ -30,7 +32,7 @@ const AllMovies = () => {
                     const sortedMovies = data
                         .filter((movie) => movie.premiered)
                         .sort((a, b) => new Date(b.premiered) - new Date(a.premiered))
-                        .slice(0, 16);
+                        .slice(0, 40);
 
                     setMovies(sortedMovies);
                 } else {
@@ -82,13 +84,22 @@ const AllMovies = () => {
                                     <NotFoundMessage message="No movies available."></NotFoundMessage>
                                 ) : (
                                     // Data Row
-                                    movies.map((movie) => <MovieCard key={movie.id} movie={movie}></MovieCard>)
+                                    movies.map((movie) => (
+                                        <MovieCard
+                                            key={movie.id}
+                                            movie={movie}
+                                            onSelectMovie={(movieData) => setSelectedMovie(movieData)}
+                                        ></MovieCard>
+                                    ))
                                 )}
                             </>
                         )}
                     </div>
                 </div>
             </section>
+
+            {/* Movie modal */}
+            {selectedMovie && <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)}></MovieModal>}
         </>
     );
 };

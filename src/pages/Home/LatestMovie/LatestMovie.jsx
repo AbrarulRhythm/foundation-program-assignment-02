@@ -4,10 +4,12 @@ import NotFoundMessage from '../../../components/NotFoundMessage/NotFoundMessage
 import MovieCard from '../../shared/MovieCard/MovieCard';
 import { Link } from 'react-router';
 import MovieCardSkeleton from '../../../components/Skeleton/MovieCardSkeleton';
+import MovieModal from '../../../components/MovieModal/MovieModal';
 
 const LatestMovie = () => {
     const [movies, setMovies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [selectedMovie, setSelectedMovie] = useState(null);
 
     useEffect(() => {
         const fetchMovies = async () => {
@@ -37,31 +39,42 @@ const LatestMovie = () => {
     }, []);
 
     return (
-        <div className="container">
-            <SectionTitle subTitle="Search Less. Watch More." title="Latest Movies"></SectionTitle>
+        <>
+            <div className="container">
+                <SectionTitle subTitle="Search Less. Watch More." title="Latest Movies"></SectionTitle>
 
-            <div className="flex flex-wrap -mx-2 lg:-mx-3">
-                {loading ? (
-                    Array.from({ length: 8 }).map((_, index) => <MovieCardSkeleton key={index}></MovieCardSkeleton>)
-                ) : (
-                    <>
-                        {/* Empty Stare */}
-                        {!movies || movies.length === 0 ? (
-                            <NotFoundMessage message="No movies available."></NotFoundMessage>
-                        ) : (
-                            // Data Row
-                            movies.map((movie) => <MovieCard key={movie.id} movie={movie}></MovieCard>)
-                        )}
-                    </>
-                )}
+                <div className="flex flex-wrap -mx-2 lg:-mx-3">
+                    {loading ? (
+                        Array.from({ length: 8 }).map((_, index) => <MovieCardSkeleton key={index}></MovieCardSkeleton>)
+                    ) : (
+                        <>
+                            {/* Empty Stare */}
+                            {!movies || movies.length === 0 ? (
+                                <NotFoundMessage message="No movies available."></NotFoundMessage>
+                            ) : (
+                                // Data Row
+                                movies.map((movie) => (
+                                    <MovieCard
+                                        key={movie.id}
+                                        movie={movie}
+                                        onSelectMovie={(movieData) => setSelectedMovie(movieData)}
+                                    ></MovieCard>
+                                ))
+                            )}
+                        </>
+                    )}
+                </div>
+
+                <div className="text-center mt-6">
+                    <Link to="/all-movies" className="button">
+                        All Movies
+                    </Link>
+                </div>
             </div>
 
-            <div className="text-center mt-6">
-                <Link to="/all-movies" className="button">
-                    All Movies
-                </Link>
-            </div>
-        </div>
+            {/* Movie modal */}
+            {selectedMovie && <MovieModal movie={selectedMovie} onClose={() => setSelectedMovie(null)}></MovieModal>}
+        </>
     );
 };
 

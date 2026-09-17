@@ -1,6 +1,6 @@
 import { FaStar } from 'react-icons/fa';
 
-const MovieCard = ({ movie }) => {
+const MovieCard = ({ movie, onSelectMovie }) => {
     const { image, name, rating, premiered } = movie;
 
     return (
@@ -30,7 +30,10 @@ const MovieCard = ({ movie }) => {
                 </div>
 
                 {/* See Details Button */}
-                <button className="w-full font-medium bg-primary text-white text-[12px] lg:text-sm py-2 lg:py-2.5 px-4 rounded-md hover:shadow-btn-inner cursor-pointer active:scale-95 duration-300">
+                <button
+                    onClick={() => onSelectMovie(movie)}
+                    className="w-full font-medium bg-primary text-white text-[12px] lg:text-sm py-2 lg:py-2.5 px-4 rounded-md hover:shadow-btn-inner cursor-pointer active:scale-95 duration-300"
+                >
                     See Details
                 </button>
             </div>
